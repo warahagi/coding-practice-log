@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Practice Log</title>
+
+<!-- ここに <style> を配置します！ -->
+<style>
+    /* 全体のフォント設定 */
+    body{
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        background-color: #f9f9f9; /* 少し背景に色をつけて白の表を浮き立たせる */
+        color: #333;
+        padding: 20px;
+    }
+    h1 {
+        text-align: center;
+        color: #4a4a4a;
+    }
+    /* 1. table のデザインをカレンダーと統一 */
+    table {
+        border-collapse: separate; /* collapse から separate に変更 */
+        border-spacing: 0;
+        width: 100%;
+        max-width: 800px;          /* 広がりすぎないように制限 */
+        margin: 20px auto;         /* 中央配置 */
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 12px;         /* カレンダーと同じ角丸 */
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);  /* カレンダーと同じ影 */
+    }
+    /* 2. ヘッダーのデザインをカレンダーと統一 */
+    th {
+        background-color: #4a4a4a; /* グレーからダークグレーへ */
+        color: white;              /* 文字を白に */
+        font-weight: bold;
+        padding: 15px;
+        text-align: center;
+        border: none;
+    }
+    /* 3. 中身のセル */
+    td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #eee;
+        text-align: left;
+        vertical-align: middle;
+    }
+    /* 4. 列ごとのこどわり（デザイナーの視点） */
+    td:first-child {
+        background-color: #fcfcfc;  /* 時間の列を少しだけグレーいして区別 */
+        font-weight: bold;
+        width: 30%;
+    }
+    /* 最後の行の線は消す */
+    tr:last-child td {
+        border-bottom: none;
+    }
+    .short-row td {                  /* 目印をつけた「行」の中にある「セル」に対して... */
+        padding-top: 2px;            /* 上のクッションも薄くして... */
+        padding-bottom: 2px;         /* 下のクッションも薄くして... */
+        background-color: #fafafa; /* ほんの少しグレーにして「休憩」とわかりやすく */
+        font-size: 0.85em;           /* 文字を少しだけ小さく */
+        color: #888;               /* 存在感をちょっと薄くする! */
+    }
+</style>
+</head>
+<body>
+    <h1>My Schedule</h1>
+    <div style="max-width: 800px; margin: 0 auto;">
+        <a href="calendar.html" style="text-decoration: none; color: #4a4a4a; font-size: 0.9em;">← カレンダーに戻る</a>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>時間割</th>
+                <th>内容</th>
+                <th>メモ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><!-- ←これが「親」 -->
+                <td>１時限目<br><small>9:30 - 10:20</small></td><!-- ←これが「1番目の子 (first-child)」 -->
+                <td>HTMLの復習</td><!-- ←これが「2番目の子」 -->
+                <td contenteditable="true">（ここにクリックして入力できます）</td><!-- ←これが「3番目の子」 -->
+
+            </tr>
+            <tr class="short-row">
+                <td>小休憩<br><small>10:20 - 10:30</small></td>
+                <td>リフレッシュ</td>
+                <td>ストレッチなど</td>
+            </tr>
+            <tr> <!-- Parent（ペアレント） -->
+                <td>２時限目<br><small>10:30 - 11:20</small></td><!-- Child（子）/ 下のtdとはSibling（シブリング)　-->
+                <td>CSSの調節</td><!-- Child（子）/ 上下のtdとはSibling（シブリング） -->
+                <td contenteditable="true">（ここにクリックして入力できます）</td>
+            </tr>
+            <tr class="short-row">
+                <td>小休憩<br><small>11:20 - 11:30</small></td>
+                <td>リフレッシュ</td>
+                <td>ストレッチなど</td>
+            </tr>
+            <tr>
+                <td>３時限目<br><small>11:30 - 12:20</small></td>
+                <td>休憩</td>
+                <td contenteditable="true">（ここにクリックして入力できます）</td>
+            </tr>
+            <tr>
+                <td>お昼休憩<br><small>12:20 - 13:20</small></td>
+                <td>美味しい韓国料理屋さん</td>
+                <td>たまにね。</td>
+            </tr>
+            <!-- 昨日の続きから -->
+             <tr>
+                <td>４時限目<br><small>13:20 - 14:10</small></td>
+                <td>応用練習</td>
+                <td contenteditable="true">（ここにクリックして入力できます）</td>
+             </tr>
+             <tr class="short-row">
+                <td>小休憩<br><small>14:10 - 14:20</small></td>
+                <td>リフレッシュ</td>
+                <td>ストレッチなど</td>
+             </tr>
+             <tr>
+                <td>５時限目<br><small>14:20 - 15:10</small></td>
+                <td>ポートフォリオ制作</td>
+                <td contenteditable="true">（ここにクリックして入力できます）</td>
+             </tr>
+             <tr class="short-row">
+                <td>小休憩<br><small>15:10 - 15:20</small></td>
+                <td>リフレッシュ</td>
+                <td>ストレッチなど</td>
+             </tr>
+             <tr>
+                <td>６時限目<br><small>15:20 - 16:10</small></td>
+                <td>夕方の休憩</td>
+                <td contenteditable="true">（ここにクリックして入力できます）</td>
+             </tr>
+             <tr>
+                <td>夜・自由時間</td>
+                <td>リラックス・自主学習</td>
+                <td contenteditable="true">（ここにクリックして入力できます）</td>
+             </tr>
+        </tbody>
+    </table>
+</body>
+</html>

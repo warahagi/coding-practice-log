@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Practice Log</title>
+
+<!-- ここに <style> を配置します！ -->
+<style>
+     h1 {
+        text-align: center;
+        color: #4a4a4a;
+    }
+    /* 1. table を差し替え */
+    table {
+        border-collapse: separate; /* collapse から separate に変更 */
+        border-spacing: 0;
+        width: auto;               /* 内容に合わせる */
+        margin: 0 auto;            /* カレンダー自体を画面中央に置く */
+        min-width: 450px;          /* min-width: 700px; を削除、または 400px 程度に下げる */
+        border: 1px solid #ddd;
+        border-radius: 12px;         /* 角丸 */
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);  /* 影 */
+        table-layout: auto; /* これが標準ですが、明示すると安心です */
+    }
+    /* 日付（aタグ）と箇条書き（ul）を左に揃える */
+    th, td {
+        padding: 10px;                   /* 15px から 10px へ少し絞る */
+        border-bottom: 1px solid #eee; /* 全体を囲む線から、下の線のみへ */
+    }
+    /* 2. th を差し替え */
+    th {
+        background-color: #4a4a4a; /* グレーからダークグレーへ */
+        color: white;              /* 文字を白に */
+        font-weight: bold;
+        border: none;
+    }
+    /* 2. 中身（td）だけに適用するルール（ここがポイント!）*/
+    td {
+        text-align: left;      /* ← ここで左に揃える */
+        vertical-align: top;
+        height: 100px;         /* ← マスの高さを揃えると、よりカレンダーらしくなります */
+    }
+    /* 日付と祝日名を横に並べるための設定 */
+    .date-row {
+        display: flex;         /* これが横並びの魔法 */
+        align-items: baseline; /* 数字と文字の足元を揃える */
+        gap: 8px;              /* 数字と名前の間をほどよい隙間 */
+        text-decoration: none; /* リンク下線を消す */
+        color: inherit;        /* リンクの青色をリセットするのをお忘れなく! */
+    }
+    .day-num {
+        font-weight: bold;
+    }
+    .holiday-name {
+        font-size: 0.75em;     /* 祝日名は小さくしてバランスを取る */
+        color: #e74c3c;      /* 祝日らいし赤色 */
+    }
+    /* 以下、td:first-child や hover などの設定はそのまま残してOKです! */
+
+    /* 1列目（時間割）を強調して、幅を固定する*/
+    td:first-child {
+        font-weight: bold;
+        width: auto; /* 150pxからautoに変更 */
+        color: #333;
+    }
+    /* マウスを乗せた行の色をふわった変える（ホバー効果）*/
+    tbody tr:hover {
+        background-color: #fff9e6; /* 優しい薄黄色 */
+        transition: background-color 0.3s; /*0.3秒かけて色を変える */
+    }
+    /* 最後の行（夜）だけ特別な色にする */
+    tbody tr:last-child{
+        background-color: #eef9ff; /* 落ち着く薄い青 */
+    }
+    /* 「休憩」という文字が入ってる行だけ、少し色を抜く */
+    tr:nth-child(even) {
+        background-color: #fafafa; /* 非常に薄いグレー */
+        color: #888;               /* 文字を少し薄くして「休み」感を出す */
+    }
+    /* 1列目（日曜）の文字を赤くする */
+    td:nth-child(1) {
+        color: #e74c3c;
+    }
+    /* 7列目（土曜日）の文字を青くする */
+    td:nth-child(7) {
+        color: #3498ad;
+    }
+    /* 「holiday」という印がついた場所だけ赤くする */
+    .holiday{
+        color: #e74c3c; /* 日曜日と同じ赤 */
+        background-color: #fdf2f2;  /* ほんのり淡い赤（例） */
+        border: 1px solid #f9dcdc;  /* 背景よりほんの少しだけ濃い線を足す */
+        /* 他の指定があればここに続く... */
+    }
+    /* 1. マス目の中身を上揃えにする（デザイナーの基本） */
+    th, td {
+        vertical-align: top;
+    }
+    /* 2. カレンダー内の数字リンクの見た目を整える */
+    td a {
+        text-decoration: none; /* 下線を消す */
+        color: inherit;        /* 親（td）の色をそのまま使う（赤なら赤に!） */
+        font-size: 1.2em;
+        font-weight: bold;
+        display: block;       /* マス目の中でクリックできる範囲を広げる */
+        margin-left: 5px;     /* 数字の」横に「日」をつけるなどして、文字の開始位置を明確にするのもアリです */
+        margin-bottom: 8px;   /* 箇条書きとの間に少し余白を作る */
+    }
+    /* 3. マウスを乗せた時の小さな演出 */
+    td a:hover {
+        color: #c0392b;      /* 少し濃い赤にして「押せる感」を出す */
+        transform: scale(1.1); /* ほんの少しだけ大きくする */
+        transition: 0.2s; 
+    }
+    /* 4. 箇条書き（ul）のレイアウトをスッキリさせる */
+    td ul {
+        list-style: none;
+        padding: 0;
+        margin-left: 5px;  /* 数字の開始位置と揃えるための微調整 */
+        font-size: 0.75em;
+        text-align: left;
+        color: #666;         /* 内容は少し薄めのグレーに */
+    }
+    td ul li {
+        line-height: 1.5;
+        padding: 3px 0;
+        padding-left: 1em;   /* その分、全体を身に寄せる */
+        text-indent: -1em;   /* 1文字分左に飛び出させる */
+        border-top: 1px dashed #eee; /* 項目間にうっすら区切り線引く */
+    }
+    .sun {
+        font-weight: bold;
+        color: #a30000;
+    }
+    .sat {
+        font-weight: bold;
+        color: #003366;
+    }
+</style>
+</head>
+<body>
+    <h1>２０２６年５月</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>日</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 1週目:金曜日（1日）からスタート -->
+            <tr>
+                <td class="sun"></td><td></td><td></td><td></td><td></td><td>1</td><td class="sat">2</td>
+            </tr>
+            <!-- 2週目 -->
+             <tr>
+                <td class="holiday">
+                    <div class="date-row">
+                      <span class="day-num">3</span>
+                      <span class="holiday-name">憲法記念日</span>
+                    </div>
+                </td> <!-- 憲法記念日 -->
+                <td class="holiday">
+                    <div class="date-row">
+                     <span class="day-num">4</span>
+                     <span class="holiday-name">みどりの日</span>
+                    </div>
+                    </td> <!-- みどりの日 -->
+
+                <td class="holiday"> 
+                     <a href="2026-05-05.html" class="date-row">
+                       <span class="day-num">5</span>
+                       <span class="holiday-name">こどもの日</span>
+                     </a>
+                    <ul>
+                        <li>・1限: HTML基礎</li>
+                        <li>・2限: CSSの調節</li>
+                        <li>・3限: 休憩</li>
+                        <li>・4限: 応用練習</li>
+                        <li>・5限: ポートフォリオ制作</li>
+                        <li>・6限: 夕方の休憩</li>
+                        <li>・夜部: リラックス・自主学習</li>
+                    </ul>
+                </td> <!-- こどもの日 -->
+                <td class="holiday">
+                    <div class="date-row">
+                        <span class="day-num">6</span>
+                        <span class="holiday-name">振替休日</span>
+                    </div>
+                    </td> <!-- 振替休日 -->
+                <td>7</td><td>8</td><td class="sat">9</td>
+             </tr>
+             <!-- 3週目 -->
+             <tr>
+                <td class="sun">10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td class="sat">16</td>
+             </tr>
+             <!-- 4週目 -->
+             <tr>
+                <td class="sun">17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td class="sat">23</td>
+             </tr>
+             <!-- 5週目 -->
+             <tr>
+                <td class="sun">24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td class="sat">30</td>
+             </tr>
+             <!-- 6週目 -->
+              <tr>
+                <td class="sun">31</td><td></td><td></td><td></td><td></td><td></td><td class="sat"></td>
+              </tr>
+        </tbody>
+    </table>
+</body>
+</html>
