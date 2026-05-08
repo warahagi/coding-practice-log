@@ -87,6 +87,21 @@
             color: #888;
             /* 存在感をちょっと薄くする! */
         }
+
+        /* 1. 入力ガイド（プレースホルダー）の色 */
+        .placeholder {
+            color: #bbb;
+        }
+
+        /* 2. タップ（クリック）して入力中の色 */
+        .placeholder:focus {
+            background-color: #fffde7;
+            /* ほんのり薄黄色 */
+            outline: none;
+            /* 青い枠線を消す */
+            border: 1px solid #ffcc80;
+            /* 枠線を少し協調 */
+        }
     </style>
 </head>
 
