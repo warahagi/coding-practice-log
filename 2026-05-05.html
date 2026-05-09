@@ -102,6 +102,37 @@
             border: 1px solid #ffcc80;
             /* 枠線を少し協調 */
         }
+
+        /* 1. 入力ガイドの色 */
+        .placeholder {
+            color: #bbb;
+        }
+
+        /* 2. 入力中の色（タップで反応！） */
+        .placeholder:focus {
+            background-color: #fffde7;
+            outline: none;
+            border: 1px solid #ffcc80;
+        }
+
+        /* 3. スマホ対応（index.htmlから引き継ぎ） */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            /* 【追加】スマホの時だけ、左側の列の幅を少し縮めると、メインの入力欄が広くなります */
+            td:first-child {
+                width: 80px;
+                /* パーセント(30%)ではなく、固定値でギュッと絞る */
+                font-size: 0.85em;
+                /* 時間の文字も少し小さくしてバランス調整 */
+            }
+        }
     </style>
 </head>
 
