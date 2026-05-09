@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coding Practice Log</title>
+    <link rel="apple-touch-icon" href="icon-log.png">
 
     <!-- ここに <style> を配置します！ -->
     <style>
@@ -37,7 +38,7 @@
         /* 日付（aタグ）と箇条書き（ul）を左に揃える */
         th,
         td {
-            padding: 10px;
+            padding: 8px 4px;
             /* 15px から 10px へ少し絞る */
             border-bottom: 1px solid #ddd;
             /* 今ある横線 */
@@ -149,12 +150,6 @@
             /* 他の指定があればここに続く... */
         }
 
-        /* 1. マス目の中身を上揃えにする（デザイナーの基本） */
-        th,
-        td {
-            vertical-align: top;
-        }
-
         /* 2. カレンダー内の数字リンクの見た目を整える */
         td a {
             text-decoration: none;
@@ -215,14 +210,18 @@
 
         @media (max-width: 600px) {
             body {
-                padding: 10px;
-                /* PCの20pxから半分にして、画面を有効活用! */
+                padding: 10px 5px;
+                /* 左右の余白をさらに削って表のスペースを確保 */
 
             }
 
             table {
-                font-size: 14px;
-                /* 窮屈にならないように文字を少しだけスマートに */
+                min-width: 100%;
+                /*固定の450pxを解除して画面幅に合わせる */
+                width: 100%;
+                font-size: 12px;
+                /* 大きなスマホでも1px下げると収まりが劇的に良くなります */
+                margin: 0;
             }
         }
     </style>
