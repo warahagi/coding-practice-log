@@ -95,11 +95,13 @@
 
         /* 以下、td:first-child や hover などの設定はそのまま残してOKです! */
         /* 一番左端のマスだけは、外枠と重なって線が太く見えないように「左線を消す」設定を足すと綺麗です */
+        /* 共通のルール（左線を消す） */
         th:first-child,
         td:first-child {
             border-left: none;
         }
 
+        /* td だけに適用したいルール */
         /* 1列目（時間割）を強調して、幅を固定する*/
         td:first-child {
             font-weight: bold;
