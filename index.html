@@ -231,10 +231,13 @@
                 margin: 0;
             }
 
+            /* リストを非表示にする（あるいは3つ目以降を隠す） */
+
             td ul {
                 display: none;
             }
 
+            /* その代わり、何か予定があるマスには「点」や「短いラベル」を出す */
             td::after {
                 content: "●";
                 display: block;
