@@ -226,24 +226,30 @@
                 min-width: 100%;
                 /*固定の450pxを解除して画面幅に合わせる */
                 width: 100%;
-                font-size: 12px;
+                font-size: 11px;
                 /* 大きなスマホでも1px下げると収まりが劇的に良くなります */
                 margin: 0;
             }
 
-            /* リストを非表示にする（あるいは3つ目以降を隠す） */
+            /* リストを完全に消さず、表示を制限する */
 
             td ul {
+                display: bolck !important;
+            }
+
+            /* 2. 3限目（3限）以降を非表示にする */
+            td ul li:nth-child(n+3) {
                 display: none;
             }
 
-            /* その代わり、何か予定があるマスには「点」や「短いラベル」を出す */
-            td::after {
+            /* 3. リストの最後に「●」を表示する */
+            td ul::after {
                 content: "●";
                 display: block;
-                text-align: center;
+                text-align: left;
                 font-size: 10px;
-                color: #aaa;
+                color: #888;
+                marigin-top: 2px;
             }
         }
     </style>
