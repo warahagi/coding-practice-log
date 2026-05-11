@@ -230,6 +230,18 @@
                 /* 大きなスマホでも1px下げると収まりが劇的に良くなります */
                 margin: 0;
             }
+
+            td ul {
+                display: none;
+            }
+
+            td::after {
+                content: "●";
+                display: block;
+                text-align: center;
+                font-size: 10px;
+                color: #aaa;
+            }
         }
     </style>
 </head>
