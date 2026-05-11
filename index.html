@@ -64,9 +64,11 @@
 
         /* 2. 中身（td）だけに適用するルール（ここがポイント!）*/
         td {
-            height: 100px;
+            height: auto;
             /* ← マスの高さを揃えると、よりカレンダーらしくなります */
+            min-height: 60px;
         }
+
 
         /* 日付と祝日名を横に並べるための設定 */
         .date-row {
@@ -184,17 +186,17 @@
         td ul {
             list-style: none;
             padding: 0;
-            margin-left: 5px;
+            margin-left: 2px;
             /* 数字の開始位置と揃えるための微調整 */
-            font-size: 0.75em;
+            font-size: 0.6em;
             text-align: left;
             color: #666;
             /* 内容は少し薄めのグレーに */
         }
 
         td ul li {
-            line-height: 1.5;
-            padding: 3px 0;
+            line-height: 1.2;
+            padding: 1px 0;
             padding-left: 1em;
             /* その分、全体を身に寄せる */
             text-indent: -1em;
