@@ -215,6 +215,22 @@
             color: #003366;
         }
 
+        .other-month {
+            color: #ccc !important;
+            /* 文字を薄いグレーに */
+            background-color: #fafafa;
+            /* 背景をほんのりグレーに（お好みで） */
+            pointer-events: none;
+            /* リンクをクリックできないようにする */
+            opacity: 0.6;
+            /* さらに透明感を下げて「背景感」を出しても綺麗です */
+        }
+
+        /* 前月の数字も薄くする */
+        .other-month .day-num {
+            color: #ccc;
+        }
+
         @media (max-width: 600px) {
             body {
                 padding: 10px 5px;
@@ -272,70 +288,70 @@
         <tbody>
             <!-- 1週目:金曜日（1日）からスタート -->
             <tr>
-                <td class="sun">
+                <td class="other-month">
                     <a href="#" class="date-row">
-                        <span class="day-num">&nbsp;</span>
+                        <span class="day-num">26</span>
                     </a>
                     <ul>
-                        <li>・1限: HTML基礎</li>
-                        <li>・2限: CSSの調整</li>
-                        <li>・3限: 休憩</li>
-                        <li>・4限: 応用練習</li>
-                        <li>・5限: ポートフォリオ制作</li>
-                        <li>・6限: 夕方の休憩</li>
-                        <li>・夜部: リラックス・自主学習</li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
                     </ul>
                 </td>
-                <td><a href="#" class="date-row">
-                        <span class="day-num">&nbsp;</span>
+                <td class="other-month"><a href="#" class="date-row">
+                        <span class="day-num">27</span>
                     </a>
                     <ul>
-                        <li>・1限: HTML基礎</li>
-                        <li>・2限: CSSの調整</li>
-                        <li>・3限: 休憩</li>
-                        <li>・4限: 応用練習</li>
-                        <li>・5限: ポートフォリオ制作</li>
-                        <li>・6限: 夕方の休憩</li>
-                        <li>・夜部: リラックス・自主学習</li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
                     </ul>
                 </td>
-                <td><a href="#" class="date-row">
-                        <span class="day-num">&nbsp;</span>
+                <td class="other-month"><a href="#" class="date-row">
+                        <span class="day-num">28</span>
                     </a>
                     <ul>
-                        <li>・1限: HTML基礎</li>
-                        <li>・2限: CSSの調整</li>
-                        <li>・3限: 休憩</li>
-                        <li>・4限: 応用練習</li>
-                        <li>・5限: ポートフォリオ制作</li>
-                        <li>・6限: 夕方の休憩</li>
-                        <li>・夜部: リラックス・自主学習</li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
                     </ul>
                 </td>
-                <td><a href="#" class="date-row">
-                        <span class="day-num">&nbsp;</span>
+                <td class="other-month"><a href="#" class="date-row">
+                        <span class="day-num">29</span>
                     </a>
                     <ul>
-                        <li>・1限: HTML基礎</li>
-                        <li>・2限: CSSの調整</li>
-                        <li>・3限: 休憩</li>
-                        <li>・4限: 応用練習</li>
-                        <li>・5限: ポートフォリオ制作</li>
-                        <li>・6限: 夕方の休憩</li>
-                        <li>・夜部: リラックス・自主学習</li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
                     </ul>
                 </td>
-                <td><a href="#" class="date-row">
-                        <span class="day-num">&nbsp;</span>
+                <td class="other-month"><a href="#" class="date-row">
+                        <span class="day-num">30</span>
                     </a>
                     <ul>
-                        <li>・1限: HTML基礎</li>
-                        <li>・2限: CSSの調整</li>
-                        <li>・3限: 休憩</li>
-                        <li>・4限: 応用練習</li>
-                        <li>・5限: ポートフォリオ制作</li>
-                        <li>・6限: 夕方の休憩</li>
-                        <li>・夜部: リラックス・自主学習</li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
                     </ul>
                 </td>
                 <td><a href="#" class="date-row">
@@ -792,88 +808,88 @@
                         <li>・夜部: リラックス・自主学習</li>
                     </ul>
                 </td>
-                <td>
+                <td class="other-month">
                     <a href="#" class="date-row">
-                        <span class="day-num">&nbsp;</span>
+                        <span class="day-num">1</span>
                     </a>
                     <ul>
-                        <li>・1限: HTML基礎</li>
-                        <li>・2限: CSSの調整</li>
-                        <li>・3限: 休憩</li>
-                        <li>・4限: 応用練習</li>
-                        <li>・5限: ポートフォリオ制作</li>
-                        <li>・6限: 夕方の休憩</li>
-                        <li>・夜部: リラックス・自主学習</li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
                     </ul>
                 </td>
-                <td>
+                <td class="other-month">
                     <a href="#" class="date-row">
-                        <span class="day-num">&nbsp;</span>
+                        <span class="day-num">2</span>
                     </a>
                     <ul>
-                        <li>・1限: HTML基礎</li>
-                        <li>・2限: CSSの調整</li>
-                        <li>・3限: 休憩</li>
-                        <li>・4限: 応用練習</li>
-                        <li>・5限: ポートフォリオ制作</li>
-                        <li>・6限: 夕方の休憩</li>
-                        <li>・夜部: リラックス・自主学習</li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
                     </ul>
                 </td>
-                <td>
+                <td class="other-month">
                     <a href="#" class="date-row">
-                        <span class="day-num">&nbsp;</span>
+                        <span class="day-num">3</span>
                     </a>
                     <ul>
-                        <li>・1限: HTML基礎</li>
-                        <li>・2限: CSSの調整</li>
-                        <li>・3限: 休憩</li>
-                        <li>・4限: 応用練習</li>
-                        <li>・5限: ポートフォリオ制作</li>
-                        <li>・6限: 夕方の休憩</li>
-                        <li>・夜部: リラックス・自主学習</li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
                     </ul>
                 </td>
-                <td>
+                <td class="other-month">
                     <a href="#" class="date-row">
-                        <span class="day-num">&nbsp;</span>
+                        <span class="day-num">4</span>
                     </a>
                     <ul>
-                        <li>・1限: HTML基礎</li>
-                        <li>・2限: CSSの調整</li>
-                        <li>・3限: 休憩</li>
-                        <li>・4限: 応用練習</li>
-                        <li>・5限: ポートフォリオ制作</li>
-                        <li>・6限: 夕方の休憩</li>
-                        <li>・夜部: リラックス・自主学習</li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
                     </ul>
                 </td>
-                <td>
+                <td class="other-month">
                     <a href="#" class="date-row">
-                        <span class="day-num">&nbsp;</span>
+                        <span class="day-num">5</span>
                     </a>
                     <ul>
-                        <li>・1限: HTML基礎</li>
-                        <li>・2限: CSSの調整</li>
-                        <li>・3限: 休憩</li>
-                        <li>・4限: 応用練習</li>
-                        <li>・5限: ポートフォリオ制作</li>
-                        <li>・6限: 夕方の休憩</li>
-                        <li>・夜部: リラックス・自主学習</li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
                     </ul>
-                </td>
+                </td calss="other-month">
                 <td class="sat">
                     <a href="#" class="date-row">
-                        <span class="day-num">&nbsp;</span>
+                        <span class="day-num">6</span>
                     </a>
                     <ul>
-                        <li>・1限: HTML基礎</li>
-                        <li>・2限: CSSの調整</li>
-                        <li>・3限: 休憩</li>
-                        <li>・4限: 応用練習</li>
-                        <li>・5限: ポートフォリオ制作</li>
-                        <li>・6限: 夕方の休憩</li>
-                        <li>・夜部: リラックス・自主学習</li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
                     </ul>
                 </td>
             </tr>
